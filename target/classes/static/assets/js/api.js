@@ -210,6 +210,19 @@ function mockPost(endpoint, data) {
           itens: itens.map(item => ({ ...item, nome: item.nome || '' }))
         };
         MOCK_DATA.atendimentos.push(novo);
+
+        MOCK_DATA.financeiro.push({
+          id: getNextId(MOCK_DATA.financeiro),
+          tipo: 'ENTRADA',
+          categoria: 'Vendas',
+          pessoa: '',
+          descricao: `Atendimento #${novo.id}`,
+          valor: Number(total || 0),
+          data_vencimento: new Date().toISOString().slice(0, 10),
+          status: 'PAGO',
+          observacao: `Pagamento via ${data.forma_pagamento || 'DINHEIRO'}`
+        });
+
         resolve(novo);
         return;
       }
@@ -390,6 +403,19 @@ async function apiPost(endpoint, data) {
     };
 
     db.atendimentos.push(novo);
+
+    db.financeiro.push({
+      id: getNextId(db.financeiro),
+      tipo: 'ENTRADA',
+      categoria: 'Vendas',
+      pessoa: '',
+      descricao: `Atendimento #${novo.id}`,
+      valor: Number(valor_total || 0),
+      data_vencimento: new Date().toISOString().slice(0, 10),
+      status: 'PAGO',
+      observacao: `Pagamento via ${novo.forma_pagamento || 'DINHEIRO'}`
+    });
+
     saveDatabase(db);
     return novo;
   }
