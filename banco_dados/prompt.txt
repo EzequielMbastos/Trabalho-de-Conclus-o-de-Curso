@@ -1,0 +1,41 @@
+Atue como um analista de sistemas e me ajude a modelar o banco de dados. Banco de dados Mysql. Incluir comando de criacao do banco de dados. Sistema chave_mestre. 
+
+Lista de entidades: 
+Produto 
+id 
+codigo_catalogo 
+nome 
+preco 
+estoque 
+status [ativo | inativo ] 
+
+Servico 
+id 
+nome 
+preco_base 
+atendimento 
+id 
+data (DATETIME) 
+forma_pagamento [pix | cartao credito | cartao debito | dinheiro ] 
+valor_total status [aberto | finalizado| cancelado] 
+
+atendimento produto 
+id 
+atendimento_id 
+produto_id 
+quantidade valor 
+
+atendimento_serviço 
+id 
+atendimento_id 
+servico_id 
+desconto 
+valor 
+
+
+Cliente 
+id
+nome
+cpf
+telefone
+endereco
