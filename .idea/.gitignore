@@ -8,3 +8,11 @@
 # Datasource local storage ignored files
 /dataSources/
 /dataSources.local.xml
+
+# Arquivos de configuração com senhas
+application.properties
+application-dev.properties
+application-prod.properties
+*.log
+*.tmp
+.DS_Store
